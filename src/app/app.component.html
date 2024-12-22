@@ -1,34 +1,77 @@
-<div *ngIf="!isFormPage" class="login-page">
-  <h1>Bem-vindo!</h1>
-  <button (click)="navigateToForm('anonimo')">Iniciar como anônimo</button>
-  <button (click)="navigateToForm('criar-conta')">Criar conta</button>
+<div *ngIf="!isFormPage" class="container" style="background-color: #FFBCBC; height: 100vh;">
+  <h1>Bem-vindo à Loja de Pijamas!</h1>
+  <p>Escolha uma opção para começar:</p>
+  <button class="button" (click)="navigateToForm('anonimo')">Iniciar como anônimo</button>
+  <button class="button" (click)="navigateToForm('criarConta')">Criar conta</button>
 </div>
 
-
-<div *ngIf="isFormPage" class="style-form">
-  <h2>Escolha seu estilo</h2>
+<div *ngIf="isFormPage" class="container" style="background-color: #FFBCBC; height: 100vh;">
+  <h1>Personalize seu pijama!</h1>
   <form (ngSubmit)="submitForm()">
     <label for="cor">Cor:</label>
     <select id="cor" [(ngModel)]="selectedColor" name="cor">
       <option value="azul">Azul</option>
       <option value="rosa">Rosa</option>
-      <option value="amarelo">Amarelo</option>
+      <option value="verde">Verde</option>
     </select>
 
     <label for="estilo">Estilo:</label>
     <select id="estilo" [(ngModel)]="selectedStyle" name="estilo">
-      <option value="conforto">Conforto</option>
-      <option value="elegante">Elegante</option>
+      <option value="clássico">Clássico</option>
+      <option value="moderno">Moderno</option>
       <option value="divertido">Divertido</option>
     </select>
 
     <label for="estampa">Estampa:</label>
     <select id="estampa" [(ngModel)]="selectedPrint" name="estampa">
-      <option value="listras">Listras</option>
       <option value="floral">Floral</option>
-      <option value="geometrico">Geométrico</option>
+      <option value="listrado">Listrado</option>
+      <option value="poá">Poá</option>
     </select>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" class="button">Enviar</button>
   </form>
 </div>
+
+<!-- Estilo CSS -->
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFBCBC; /* Define a cor de fundo global */
+  }
+
+  .container {
+    text-align: center;
+    padding-top: 50px;
+    height: 100vh;
+  }
+
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+
+  select {
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 200px;
+  }
+
+  .button {
+    background-color: #084D6E;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .button:hover {
+    background-color: #063a51;
+  }
+</style>
