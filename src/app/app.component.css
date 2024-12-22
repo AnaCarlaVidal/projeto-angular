@@ -1,3 +1,4 @@
+/* Caixa que ocupa toda a tela e centraliza o conteúdo */
 .container {
   display: flex;
   flex-direction: column; /* Alinha itens na vertical */
@@ -5,22 +6,27 @@
   justify-content: center; /* Centraliza verticalmente */
   height: 100vh;           /* Ocupa toda a altura da tela */
   text-align: center;
+  background-color: #FFBCBC; /* Cor de fundo personalizada */
+  padding: 90px; /* Adiciona um pouco de espaçamento nas laterais */
 }
 
+/* Estilo dos botões */
 .custom-button {
   background-color: #084D6E; /* Cor de fundo */
   color: #ffffff;           /* Cor do texto */
   border: none;             /* Remove bordas */
   border-radius: 5px;       /* Bordas arredondadas */
-  padding: 10px 20px;       /* Espaçamento interno */
-  font-size: 16px;          /* Tamanho da fonte */
-  cursor: pointer;          /* Mostra o cursor de ponteiro */
+  padding: 12px 20px;       /* Aumentei o padding para mais espaçamento */
+  font-size: 18px;          /* Tamanho da fonte */
+  cursor: pointer;         /* Mostra o cursor de ponteiro */
   margin: 10px 0;           /* Espaçamento entre os botões */
-  width: 200px;             /* Largura fixa dos botões */
+  width: 80%;               /* Largura de 80% da tela */
+  max-width: 300px;         /* Limita a largura máxima dos botões */
   text-align: center;       /* Centraliza o texto */
   transition: background-color 0.3s ease;
 }
 
+/* Estilo ao passar o mouse nos botões */
 .custom-button:hover {
   background-color: #06394F; /* Cor mais escura ao passar o mouse */
 }
