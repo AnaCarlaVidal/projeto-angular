@@ -1,13 +1,29 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Importando o CommonModule
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [FormsModule, CommonModule] // Inclua o CommonModule aqui
 })
 export class AppComponent {
-  title = 'projeto-angular';
+  isFormPage = false; // Controla qual página será exibida
+  selectedColor = '';
+  selectedStyle = '';
+  selectedPrint = '';
+
+  // Função para navegar para a página do formulário
+  navigateToForm(page: string) {
+    console.log(`Navegando para a página: ${page}`);
+    this.isFormPage = true;
+  }
+
+  // Função para enviar o formulário
+  submitForm() {
+    console.log('Cor:', this.selectedColor);
+    console.log('Estilo:', this.selectedStyle);
+    console.log('Estampa:', this.selectedPrint);
+  }
 }
