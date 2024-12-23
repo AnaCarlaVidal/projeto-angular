@@ -16,23 +16,27 @@
         <option value="azul">Azul</option>
         <option value="rosa">Rosa</option>
         <option value="verde">Verde</option>
+        <option value="vermelho">Vermelho</option>
       </select>
 
       <label for="estilo">Estilo:</label>
       <select id="estilo" [(ngModel)]="selectedStyle" name="estilo">
-        <option value="clássico">Clássico</option>
-        <option value="moderno">Moderno</option>
-        <option value="divertido">Divertido</option>
+        <option value="cropped">Cropped</option>
+        <option value="macaquinho">Macaquinho</option>
+        <option value="americano">Americano</option>
       </select>
 
       <label for="estampa">Estampa:</label>
       <select id="estampa" [(ngModel)]="selectedPrint" name="estampa">
         <option value="floral">Floral</option>
-        <option value="listrado">Listrado</option>
-        <option value="poá">Poá</option>
+        <option value="Animal">Animal</option>
+        <option value="Frutas">Frutas</option>
+        <option value="Liso">Liso</option>
+        
       </select>
 
       <button type="submit" class="button">Enviar</button>
+      <button type="submit" class="button">Voltar</button>
     </form>
   </div>
 </div>
@@ -44,20 +48,12 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #FFBCBC; /* Cor de fundo */
+    background-color: #FFFFFF; /* Cor de fundo */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Garante que a altura da página ocupe toda a tela */
-    background-color: #FFBCBC; /* Confirma a cor do fundo da página */
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+    background-color: #FFFFFF; /* Confirma a cor do fundo da página */
   }
 
   .content-box {

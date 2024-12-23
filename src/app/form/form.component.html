@@ -1,37 +1,39 @@
+<!-- form.component.html -->
 <div class="container">
-    <h1>Escolha seu estilo de pijama</h1>
-    
-    <form (ngSubmit)="onSubmit()">
-      <label for="cores">Cores:</label>
-      <select id="cores" name="cores">
-        <option value="azul">Azul</option>
-        <option value="rosa">Rosa</option>
-        <option value="verde">Vermelho</option>
-      </select>
+  <!-- Usando a variável title no <h1> -->
+  <h1>{{ title }}</h1> <!-- O valor da variável title será exibido aqui -->
   
-      <label for="estilos">Estilos:</label>
-      <select id="estilos" name="estilos">
-        <option value="casual">Casual</option>
-        <option value="luxo">Luxo</option>
-        <option value="descontraido">Descontraído</option>
-      </select>
-  
-      <label for="estampas">Tipo de Estampas:</label>
-      <select id="estampas" name="estampas">
-        <option value="floral">Floral</option>
-        <option value="listrado">Listrado</option>
-        <option value="animais">Animais</option>
-      </select>
-  
-      <br /><br />
-      <button type="submit">Enviar</button>
-    </form>
-  
-    <div *ngIf="response">
-      <h2>Preferências Escolhidas:</h2>
-      <p><strong>Cores:</strong> {{ response.cores }}</p>
-      <p><strong>Estilos:</strong> {{ response.estilos }}</p>
-      <p><strong>Estampas:</strong> {{ response.estampas }}</p>
-    </div>
+  <form (ngSubmit)="onSubmit()">
+    <label for="cores">Cores:</label>
+    <select id="cores" name="cores">
+      <option value="azul">Azul</option>
+      <option value="rosa">Rosa</option>
+      <option value="verde">Vermelho</option>
+    </select>
+
+    <label for="estilos">Estilos:</label>
+    <select id="estilos" name="estilos">
+      <option value="casual">Casual</option>
+      <option value="luxo">Luxo</option>
+      <option value="descontraido">Descontraído</option>
+    </select>
+
+    <label for="estampas">Tipo de Estampas:</label>
+    <select id="estampas" name="estampas">
+      <option value="floral">Floral</option>
+      <option value="listrado">Listrado</option>
+      <option value="animais">Animais</option>
+    </select>
+
+    <br /><br />
+    <button type="submit">Enviar</button>
+    <button type="submit">Voltar</button>
+  </form>
+
+  <div *ngIf="response">
+    <h2>Preferências Escolhidas:</h2>
+    <p><strong>Cores:</strong> {{ response.cores }}</p>
+    <p><strong>Estilos:</strong> {{ response.estilos }}</p>
+    <p><strong>Estampas:</strong> {{ response.estampas }}</p>
   </div>
-  
+</div>
