@@ -1,0 +1,19 @@
+<div *ngIf="showResultPage">
+    <h1>Resultado da Busca</h1>
+    <p>Detalhes do produto...</p>
+    <button (click)="goToProductDetail()">Concluir</button>
+  </div>
+  
+  <!-- Página de Detalhes -->
+  <div *ngIf="!showResultPage">
+    <h1>Detalhes do Produto</h1>
+    <p>Aqui estará a descrição completa do produto escolhido.</p>
+    <div>
+      <p><strong>Nome do Produto:</strong> Nome do Produto</p>
+      <p><strong>Descrição:</strong> Detalhes do produto...</p>
+      <p><strong>Preço:</strong> R$ 100,00</p>
+    </div>
+    <button (click)="addToCart()">Adicionar ao Carrinho</button>
+    <button (click)="goBack()">Voltar</button>
+  </div>
+  

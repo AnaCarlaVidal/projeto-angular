@@ -1,6 +1,6 @@
 <div class="container">
   <div class="content-box">
-    <!-- Informações Condicionais -->
+    <!-- Página Inicial -->
     <div *ngIf="currentPage === 'home'">
       <h1>Bem-vindo à Loja de Pijamas Vestir & Dormir!</h1>
       <p>Escolha uma opção para começar:</p>
@@ -8,6 +8,7 @@
       <button class="button" (click)="navigateTo('form')">Criar conta</button>
     </div>
 
+    <!-- Página de Formulário -->
     <div *ngIf="currentPage === 'form'">
       <h1>Personalize seu pijama de acordo com suas preferências!</h1>
       <form (ngSubmit)="submitForm()">
@@ -39,13 +40,25 @@
       </form>
     </div>
 
+    <!-- Página de Resultado -->
     <div *ngIf="currentPage === 'resultado'">
       <h1>Suas Escolhas</h1>
       <p><strong>Cor Escolhida:</strong> {{ selectedColor }}</p>
       <p><strong>Estilo Escolhido:</strong> {{ selectedStyle }}</p>
       <p><strong>Estampa Escolhida:</strong> {{ selectedPrint }}</p>
       <button class="button" (click)="navigateTo('form')">Voltar</button>
-      <button class="button" (click)="goToHome()">Concluir</button>
+      <button class="button" (click)="navigateTo('produto-detalhes')">Concluir</button>
+    </div>
+
+    <!-- Página de Detalhes do Produto -->
+    <div *ngIf="currentPage === 'produto-detalhes'">
+      <h1>Detalhes do Produto</h1>
+      <p><strong>Cor:</strong> {{ selectedColor }}</p>
+      <p><strong>Estilo:</strong> {{ selectedStyle }}</p>
+      <p><strong>Estampa:</strong> {{ selectedPrint }}</p>
+      <p><strong>Descrição:</strong> Este produto é o que há de mais confortável para o seu sono e lazer.</p>
+      <button class="button" (click)="addToCart()">Adicionar ao Carrinho</button>
+      <button class="button" (click)="goToHome()">Voltar</button>
     </div>
   </div>
 </div>

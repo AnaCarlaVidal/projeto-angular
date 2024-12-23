@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
 })
 export class AppComponent {
-  currentPage: string = 'home'; // Controla a página atual (home, form, resultado)
+  currentPage: string = 'home'; // Controla a página atual (home, form, resultado, produto-detalhes)
   selectedColor: string = '';  // Armazena a cor escolhida pelo usuário
   selectedStyle: string = '';  // Armazena o estilo escolhido pelo usuário
   selectedPrint: string = '';  // Armazena o tipo de estampa escolhida pelo usuário
@@ -28,6 +28,17 @@ export class AppComponent {
 
     // Navega para a página de resultados
     this.navigateTo('resultado');
+  }
+
+  // Ir para a página de detalhes do produto
+  goToProductDetail(): void {
+    this.navigateTo('produto-detalhes');
+  }
+
+  // Adicionar ao carrinho
+  addToCart(): void {
+    console.log('Produto adicionado ao carrinho!');
+    this.navigateTo('home');  // Retorna para a página inicial após adicionar
   }
 
   // Retornar para a página inicial
