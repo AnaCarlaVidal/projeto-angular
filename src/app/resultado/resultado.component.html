@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="content-box">
+      <h1>Suas Escolhas</h1>
+      <p><strong>Cor Escolhida:</strong> {{ selectedColor }}</p>
+      <p><strong>Estilo Escolhido:</strong> {{ selectedStyle }}</p>
+      <p><strong>Estampa Escolhida:</strong> {{ selectedPrint }}</p>
+  
+      <!-- Botões -->
+      <button class="button" (click)="goBack()">Voltar</button>
+      <button class="button" (click)="concluir()">Concluir</button>
+    </div>
+  </div>
+  

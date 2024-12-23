@@ -13,9 +13,18 @@ body {
   height: 100vh;
   padding: 20px;
   text-align: center;
-  background-color: #FFBCBC;
+  background-color: FFBCBC;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.content-box {
+  background-color: #ffffff; /* Fundo branco da caixa */
+  padding: 30px; /* Espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar a caixa */
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Largura inicial */
+  max-width: 400px; /* Define largura máxima */
 }
 
 h1 {
@@ -69,3 +78,4 @@ p {
   font-size: 1.1em;
   color: #333;
 }
+

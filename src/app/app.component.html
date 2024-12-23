@@ -1,103 +1,51 @@
-<div *ngIf="!isFormPage" class="container">
+<div class="container">
   <div class="content-box">
-    <h1>Bem-vindo à Loja de Pijamas Vestir & Dormir!</h1>
-    <p>Escolha uma opção para começar:</p>
-    <button class="button" (click)="navigateToForm('anonimo')">Iniciar como anônimo</button>
-    <button class="button" (click)="navigateToForm('criarConta')">Criar conta</button>
+    <!-- Informações Condicionais -->
+    <div *ngIf="currentPage === 'home'">
+      <h1>Bem-vindo à Loja de Pijamas Vestir & Dormir!</h1>
+      <p>Escolha uma opção para começar:</p>
+      <button class="button" (click)="navigateTo('form')">Iniciar como anônimo</button>
+      <button class="button" (click)="navigateTo('form')">Criar conta</button>
+    </div>
+
+    <div *ngIf="currentPage === 'form'">
+      <h1>Personalize seu pijama de acordo com suas preferências!</h1>
+      <form (ngSubmit)="submitForm()">
+        <label for="cor">Cor:</label>
+        <select id="cor" [(ngModel)]="selectedColor" name="cor">
+          <option value="azul">Azul</option>
+          <option value="rosa">Rosa</option>
+          <option value="verde">Verde</option>
+          <option value="vermelho">Vermelho</option>
+        </select>
+
+        <label for="estilo">Estilo:</label>
+        <select id="estilo" [(ngModel)]="selectedStyle" name="estilo">
+          <option value="cropped">Cropped</option>
+          <option value="macaquinho">Macaquinho</option>
+          <option value="americano">Americano</option>
+        </select>
+
+        <label for="estampa">Estampa:</label>
+        <select id="estampa" [(ngModel)]="selectedPrint" name="estampa">
+          <option value="floral">Floral</option>
+          <option value="animal">Animal</option>
+          <option value="frutas">Frutas</option>
+          <option value="liso">Liso</option>
+        </select>
+
+        <button type="submit" class="button">Enviar</button>
+        <button type="button" class="button" (click)="goToHome()">Voltar</button>
+      </form>
+    </div>
+
+    <div *ngIf="currentPage === 'resultado'">
+      <h1>Suas Escolhas</h1>
+      <p><strong>Cor Escolhida:</strong> {{ selectedColor }}</p>
+      <p><strong>Estilo Escolhido:</strong> {{ selectedStyle }}</p>
+      <p><strong>Estampa Escolhida:</strong> {{ selectedPrint }}</p>
+      <button class="button" (click)="navigateTo('form')">Voltar</button>
+      <button class="button" (click)="goToHome()">Concluir</button>
+    </div>
   </div>
 </div>
-
-<div *ngIf="isFormPage" class="container">
-  <div class="content-box">
-    <h1>Personalize seu pijama de acordo com suas preferências!</h1>
-    <form (ngSubmit)="submitForm()">
-      <label for="cor">Cor:</label>
-      <select id="cor" [(ngModel)]="selectedColor" name="cor">
-        <option value="azul">Azul</option>
-        <option value="rosa">Rosa</option>
-        <option value="verde">Verde</option>
-        <option value="vermelho">Vermelho</option>
-      </select>
-
-      <label for="estilo">Estilo:</label>
-      <select id="estilo" [(ngModel)]="selectedStyle" name="estilo">
-        <option value="cropped">Cropped</option>
-        <option value="macaquinho">Macaquinho</option>
-        <option value="americano">Americano</option>
-      </select>
-
-      <label for="estampa">Estampa:</label>
-      <select id="estampa" [(ngModel)]="selectedPrint" name="estampa">
-        <option value="floral">Floral</option>
-        <option value="Animal">Animal</option>
-        <option value="Frutas">Frutas</option>
-        <option value="Liso">Liso</option>
-        
-      </select>
-
-      <button type="submit" class="button">Enviar</button>
-      <button type="button" class="button" (click)="goToHome()">Voltar</button>
-    </form>
-  </div>
-</div>
-
-<!-- Estilo CSS -->
-<style>
-  /* Adicionando a cor de fundo */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFFFFF; /* Cor de fundo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Garante que a altura da página ocupe toda a tela */
-    background-color: #FFFFFF; /* Confirma a cor do fundo da página */
-  }
-
-  .content-box {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px; /* Limita a largura máxima */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para o quadro */
-    text-align: center;
-  }
-
-  h1 {
-    color: #084D6E;
-  }
-
-  label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-
-  select {
-    margin-bottom: 15px;
-    padding: 5px;
-    width: 200px;
-  }
-
-  .button {
-    background-color: #084D6E;
-    color: #ffffff;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-  }
-
-  .button:hover {
-    background-color: #063a51;
-  }
-</style>
