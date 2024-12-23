@@ -43,22 +43,25 @@
     <!-- Página de Resultado -->
     <div *ngIf="currentPage === 'resultado'">
       <h1>Suas Escolhas</h1>
-      <p><strong>Cor Escolhida:</strong> {{ selectedColor }}</p>
+      <p><strong>Pijama 20</strong> {{ selectedColor }}</p>
+      <p><strong>Pijama 21</strong> {{ selectedColor }}</p>
+      <p><strong>Pijama 22</strong> {{ selectedColor }}</p>
       <p><strong>Estilo Escolhido:</strong> {{ selectedStyle }}</p>
       <p><strong>Estampa Escolhida:</strong> {{ selectedPrint }}</p>
-      <button class="button" (click)="navigateTo('form')">Voltar</button>
       <button class="button" (click)="navigateTo('produto-detalhes')">Concluir</button>
+      <button class="button" (click)="navigateTo('form')">Voltar</button>
     </div>
 
     <!-- Página de Detalhes do Produto -->
     <div *ngIf="currentPage === 'produto-detalhes'">
       <h1>Detalhes do Produto</h1>
+      <p><strong>Pijama 20</strong> {{ selectedColor }}</p>
       <p><strong>Cor:</strong> {{ selectedColor }}</p>
       <p><strong>Estilo:</strong> {{ selectedStyle }}</p>
       <p><strong>Estampa:</strong> {{ selectedPrint }}</p>
       <p><strong>Descrição:</strong> Este produto é o que há de mais confortável para o seu sono e lazer.</p>
       <button class="button" (click)="addToCart()">Adicionar ao Carrinho</button>
-      <button class="button" (click)="goToHome()">Voltar</button>
+      <button class="button" (click)="navigateTo(previousPage)">Voltar</button>
     </div>
   </div>
 </div>
