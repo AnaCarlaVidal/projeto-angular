@@ -9,7 +9,7 @@
 
 <div *ngIf="isFormPage" class="container">
   <div class="content-box">
-    <h1>Personalize seu pijama!</h1>
+    <h1>Personalize seu pijama de acordo com suas preferências!</h1>
     <form (ngSubmit)="submitForm()">
       <label for="cor">Cor:</label>
       <select id="cor" [(ngModel)]="selectedColor" name="cor">
@@ -36,7 +36,7 @@
       </select>
 
       <button type="submit" class="button">Enviar</button>
-      <button type="submit" class="button">Voltar</button>
+      <button type="button" class="button" (click)="goToHome()">Voltar</button>
     </form>
   </div>
 </div>

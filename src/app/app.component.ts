@@ -27,4 +27,8 @@ export class AppComponent {
 
     // Aqui você pode adicionar lógica adicional, como enviar os dados para um servidor
   }
+  // Voltar para a página inicial
+  goToHome(): void {
+    this.isFormPage = false; // Retorna para a página inicial
+  }
 }
