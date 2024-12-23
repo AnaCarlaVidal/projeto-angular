@@ -9,6 +9,23 @@ body {
   align-items: center; /* Centraliza verticalmente */
 }
 
+.button {
+  background-color: #084D6E; /* Cor de fundo do botão */
+  color: #ffffff;           /* Cor do texto */
+  padding: 10px 20px;       /* Espaçamento interno */
+  margin: 10px 0;           /* Margem entre os botões */
+  border: none;             /* Remove bordas padrão */
+  border-radius: 5px;       /* Bordas arredondadas */
+  cursor: pointer;          /* Cursor em forma de mão */
+  font-size: 16px;          /* Tamanho da fonte */
+  width: 100%;              /* Largura total do container */
+  max-width: 200px;         /* Largura máxima do botão */
+  transition: background-color 0.3s ease; /* Transição para o efeito hover */
+}
+
+.button:hover {
+  background-color: #063a51; /* Cor do botão ao passar o mouse */
+}
 .container {
   display: flex;
   flex-direction: column; /* Alinha os elementos na vertical */

@@ -3,8 +3,30 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  .button {
+    display: block;          /* Faz com que o botão ocupe toda a linha */
+    width: 100%;             /* Garante que o botão ocupe a largura total */
+    max-width: 200px;        /* Mantém a largura máxima do botão */
+    margin: 10px auto;       /* Centraliza e adiciona margem entre os botões */
+  }
+}
+.button {
+  background-color: #084D6E; /* Cor de fundo do botão */
+  color: #ffffff;           /* Cor do texto */
+  padding: 10px 20px;       /* Espaçamento interno */
+  margin: 10px 0;           /* Margem entre os botões */
+  border: none;             /* Remove bordas padrão */
+  border-radius: 5px;       /* Bordas arredondadas */
+  cursor: pointer;          /* Cursor em forma de mão */
+  font-size: 16px;          /* Tamanho da fonte */
+  width: 100%;              /* Largura total do container */
+  max-width: 200px;         /* Largura máxima do botão */
+  transition: background-color 0.3s ease; /* Transição para o efeito hover */
 }
 
+.button:hover {
+  background-color: #063a51; /* Cor do botão ao passar o mouse */
+}
 .container {
   display: flex;
   flex-direction: column;
