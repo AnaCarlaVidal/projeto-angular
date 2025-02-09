@@ -100,4 +100,10 @@ p {
   font-size: 1.1em;
   color: #333;
 }
+.logo {
+  display: block;
+  margin: 10px auto; /* Centraliza a imagem */
+  max-width: 200px;  /* Define uma largura máxima */
+  height: auto;      /* Mantém a proporção */
+}
 

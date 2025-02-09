@@ -2,15 +2,35 @@
   <div class="content-box">
     <!-- Página Inicial -->
     <div *ngIf="currentPage === 'home'">
-      <h1>Bem-vindo à Loja de Pijamas Vestir & Dormir!</h1>
+      <h2>Bem-vindo à Loja de Pijamas</h2>
+      <img src="assets/logo.png" alt="Logo da Loja de Pijamas" class="logo">
+      <h1>Vestir & Dormir</h1>
       <p>Escolha uma opção para começar:</p>
       <button class="button" (click)="navigateTo('form')">Iniciar como anônimo</button>
-      <button class="button" (click)="navigateTo('form')">Criar conta</button>
+      <button class="button" (click)="navigateTo('criar-conta')">Criar conta</button>
+    </div>
+
+    <!-- Página de Criação de Conta -->
+    <div *ngIf="currentPage === 'criar-conta'">
+      <h1>Criar Conta</h1>
+      <form (submit)="createAccount()">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required />
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required />
+
+        <button type="submit" class="button">Criar Conta</button>
+        <button type="button" class="button" (click)="goToHome()">Voltar</button>
+      </form>
     </div>
 
     <!-- Página de Formulário -->
     <div *ngIf="currentPage === 'form'">
-      <h1>Personalize seu pijama de acordo com suas preferências!</h1>
+      <h2>Personalize seu pijama de acordo com suas preferências!</h2>
       <form (ngSubmit)="submitForm()">
         <label for="cor">Cor:</label>
         <select id="cor" [(ngModel)]="selectedColor" name="cor">
@@ -43,9 +63,7 @@
     <!-- Página de Resultado -->
     <div *ngIf="currentPage === 'resultado'">
       <h1>Suas Escolhas</h1>
-      <p><strong>Pijama 20</strong> {{ selectedColor }}</p>
-      <p><strong>Pijama 21</strong> {{ selectedColor }}</p>
-      <p><strong>Pijama 22</strong> {{ selectedColor }}</p>
+      <p><strong>Cor Escolhida:</strong> {{ selectedColor }}</p>
       <p><strong>Estilo Escolhido:</strong> {{ selectedStyle }}</p>
       <p><strong>Estampa Escolhida:</strong> {{ selectedPrint }}</p>
       <button class="button" (click)="navigateTo('produto-detalhes')">Concluir</button>
@@ -55,13 +73,27 @@
     <!-- Página de Detalhes do Produto -->
     <div *ngIf="currentPage === 'produto-detalhes'">
       <h1>Detalhes do Produto</h1>
-      <p><strong>Pijama 20</strong> {{ selectedColor }}</p>
       <p><strong>Cor:</strong> {{ selectedColor }}</p>
       <p><strong>Estilo:</strong> {{ selectedStyle }}</p>
       <p><strong>Estampa:</strong> {{ selectedPrint }}</p>
       <p><strong>Descrição:</strong> Este produto é o que há de mais confortável para o seu sono e lazer.</p>
       <button class="button" (click)="addToCart()">Adicionar ao Carrinho</button>
       <button class="button" (click)="navigateTo(previousPage)">Voltar</button>
+    </div>
+
+    <!-- Página do Carrinho -->
+    <div *ngIf="currentPage === 'carrinho'">
+      <h1>Carrinho de Compras</h1>
+      <ul>
+        <li *ngFor="let item of cart; let i = index">
+          <p><strong>Produto {{ i + 1 }}</strong></p>
+          <p>Cor: {{ item.color }}</p>
+          <p>Estilo: {{ item.style }}</p>
+          <p>Estampa: {{ item.print }}</p>
+        </li>
+      </ul>
+      <button class="button" (click)="goToHome()">Finalizar</button>
+      <button class="button" (click)="goToHome()">Voltar</button>
     </div>
   </div>
 </div>
