@@ -9,42 +9,79 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
 })
 export class AppComponent {
-  currentPage: string = 'home'; // Página atual
-  previousPage: string = 'home'; // Página anterior
-  selectedColor: string = '';  // Cor escolhida
-  selectedStyle: string = '';  // Estilo escolhido
-  selectedPrint: string = '';  // Estampa escolhida
-  cart: any[] = []; // Array para armazenar os produtos adicionados ao carrinho
+  currentPage: string = 'home';
+  previousPage: string = 'home';
+  selectedColor: string = '';
+  selectedStyle: string = '';
+  selectedPrint: string = '';
+  cart: any[] = [];
 
   // Propriedades para criação de conta
   username: string = '';
   email: string = '';
   password: string = '';
 
+  // Propriedades para login
+  loginUsername: string = '';
+  loginPassword: string = '';
+  user: any = null; // Usuário logado
+  users: any[] = []; // Lista de usuários cadastrados
+
   // Navegar entre páginas
   navigateTo(page: string): void {
-    this.previousPage = this.currentPage; // Armazena a página atual como anterior
+    this.previousPage = this.currentPage;
     this.currentPage = page;
   }
 
-  // Submeter formulário para criação de conta
+  // Criar conta
   createAccount(): void {
-    console.log('Criando conta com:');
-    console.log('Username:', this.username);
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
+    console.log('Criando conta com:', this.username, this.email, this.password);
 
-    // Lógica para criar conta - pode ser uma requisição API, por exemplo
-    this.navigateTo('resultado'); // Navega para a página de resultado após criar a conta
+    // Verifica se o nome de usuário já existe
+    const existingUser = this.users.find(u => u.username === this.username);
+    if (existingUser) {
+      alert('Nome de usuário já existe! Escolha outro.');
+      return;
+    }
+
+    // Adiciona o usuário à lista de cadastrados
+    const newUser = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
+    this.users.push(newUser);
+
+    alert(`Conta criada com sucesso! Bem-vindo, ${this.username}!`);
+    this.navigateTo('form'); // Redireciona para a personalização
   }
 
-  // Submeter formulário de seleção de produtos
-  submitForm(): void {
-    console.log('Formulário enviado:');
-    console.log('Cor:', this.selectedColor);
-    console.log('Estilo:', this.selectedStyle);
-    console.log('Estampa:', this.selectedPrint);
+  // Fazer login
+  loginUser(): void {
+    console.log('Tentando login com:', this.loginUsername, this.loginPassword);
 
+    // Verifica se existe um usuário com as credenciais fornecidas
+    const foundUser = this.users.find(u => u.username === this.loginUsername && u.password === this.loginPassword);
+
+    if (foundUser) {
+      this.user = foundUser;
+      console.log(`Bem-vindo, ${this.user.username}!`);
+      alert(`Bem-vindo, ${this.user.username}!`);
+      this.navigateTo('form'); // Redireciona para personalizar o pijama
+    } else {
+      alert('Nome de usuário ou senha incorretos.');
+    }
+  }
+
+  // Logout
+  logout(): void {
+    this.user = null;
+    this.navigateTo('home');
+  }
+
+  // Submeter formulário de personalização
+  submitForm(): void {
+    console.log('Formulário enviado:', this.selectedColor, this.selectedStyle, this.selectedPrint);
     this.navigateTo('resultado');
   }
 
@@ -55,15 +92,18 @@ export class AppComponent {
       style: this.selectedStyle,
       print: this.selectedPrint,
     };
-    this.cart.push(product); // Adiciona o produto ao carrinho
+    this.cart.push(product);
     console.log('Produto adicionado ao carrinho:', product);
-
-    // Navegar para a página do carrinho
     this.navigateTo('carrinho');
   }
 
-  // Retornar para a página inicial
+  // Voltar para a página inicial
   goToHome(): void {
     this.navigateTo('home');
+  }
+
+  // Retornar para a página anterior
+  goBack(): void {
+    this.currentPage = this.previousPage;
   }
 }
